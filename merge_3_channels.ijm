@@ -1,4 +1,4 @@
-filepath = "P:/Private/practice/imaging/IF/IF78_BaxK-WT/IF78_BaxK-on-WT_STEDycon/obfs only/IF78_spl6/renamed/tifs/"; //this needs to be changed and needs to have backslash at the end!
+filepath = "P:/Private/practice/imaging/IF/IF78_BaxK-WT/IF78_BaxK-on-WT_STEDycon/obfs only/IF78_spl1/renamed/tifs/"; //this needs to be changed and needs to have backslash at the end!
 filelist = getFileList(filepath);
 
 for (i = 0; i < filelist.length; i++) {
@@ -24,7 +24,7 @@ for (i = 0; i < filelist.length; i++) {
 		
 		// run("Merge Channels...", "c5=SVS_IF75_BaxK_spl3_pos2_BaK.STED_BG-20._contr-enh.tiff c6=SVS_IF75_BaxK_spl3_pos2_Tom20.STEDcontr-enh.tiff c7=SVS_IF75_BaxK_spl3_pos2_Bax.STED_BG-20._contr-enh.tiff create ignore");
 		
-		save_title = replace(title, "Tom20", "merge");
+		save_title = replace(title, "cytC", "merge");
 		saveAs("Tiff", filepath + save_title); // saves as multipage tiff
 		saveAs("Jpeg", filepath + save_title + ".jpg"); // saves as jpg
 		close ("*");
