@@ -11,7 +11,7 @@ SourceDir = getDirectory("Choose Source Directory ");
 subDirlist = getFileList(SourceDir);
 
 for (i = 0; i < subDirlist.length; i++) {
-	subdir = SourceDir + subDirlist[i] + "renamed/" ;  //ATTENTION! NEED to change here where the subdir is located!
+	subdir = SourceDir + subDirlist[i] + "renamed/" + "tifs/";  //ATTENTION! NEED to change here where the subdir is located!
 	print(subdir);
 	filelist = getFileList(subdir);
 	for (j = 0; j < filelist.length; j++) {
@@ -21,7 +21,7 @@ for (i = 0; i < subDirlist.length; i++) {
 		//change the name parts according to which of the images are supposed to be roll-balled
 		// if two different channels are needed to be rollballed, choose both with:
 			
-		if(endsWith(filename, "Bax.STED.tiff") || endsWith(filename, "Bak.STED.tiff")) {
+		if(endsWith(filename, "Bax.STED.tiff") || endsWith(filename, "Bak.STED.tiff")  || endsWith(filename, "BaxK.STED.tiff")) {
 			
 		// if only one channel needs to be rollballed, use this line:
 		//if(endsWith(filename, "Tom20.STED.tiff")) {  
@@ -31,7 +31,7 @@ for (i = 0; i < subDirlist.length; i++) {
 			title = getTitle();
 			print(title);
 	
-			// runs the rolly bally; rolling=xx sets the sigma; sliding means that the structuring object is a sliding paraboloid
+			// runs the rolly bally; rolling=xx: sets the sigma; sliding means that the structuring object is a sliding paraboloid
 			radius = 20; // set your radius here in pixels
 			run("Subtract Background...", "rolling=" + radius + " sliding");
 	

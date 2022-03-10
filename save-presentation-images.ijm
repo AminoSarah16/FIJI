@@ -15,15 +15,17 @@ print(title);
 run("Set Scale...", "distance=5333 known=80 unit=µm global");
 
 //makeRectangle
-waitForUser("ROI", "Please select ROIs add them to the ROI manager (press t). Tip: Hold Shift key while dragging in order for them to be square, but release and click anywhere in between to not combine the ROIs. Click OK when done.");
+waitForUser("ROI", "Please select ROIs add them to the ROI manager (press t). Tip: Hold Shift key while dragging in order for them to be square, but release and click anywhere in between to not combine the ROIs. You can also make sure that all the ROIs have the same size: Edit > Selection > Specify.Click OK when done.");
 
 //now we duplicate every of the drawn rectangle
 count = roiManager("count");		
 for (i = 0; i < count; i++) {
 	print(i);
 	selectImage(title);
+	//rename the ROIs
 	roiManager("select", i);
 	roiManager("Rename", "crop"+i+1); //i starts with 0 but we want to start counting with 1
+	//crop the ROIs from the original
 	run("Duplicate...", "duplicate");
 	// save ROIs as is
 	save_title = replace(title, ".tif", "_crop" + i+1 + ".tif");  //i starts with 0 but we want to start counting with 1

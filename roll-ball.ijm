@@ -6,7 +6,7 @@
 
 
 // change filepath and namepart
-filepath = "P:/Private/practice/imaging/IF/IF78_BaxK-WT/IF78_BaxK-on-WT_STEDycon/obfs only/IF78_spl1/renamed/tifs/"; //this needs to be changed and needs to have backslash at the end!
+filepath = getDirectory("Choose Source Directory ");
 filelist = getFileList(filepath);
 
 for (i = 0; i < filelist.length; i++) {
@@ -14,7 +14,7 @@ for (i = 0; i < filelist.length; i++) {
 
 	//change the name parts according to which of the images are supposed to be roll-balled
 	// if two different channels are needed to be rollballed, choose both with:
-	if(endsWith(filename, "Bax.STED.tiff") || endsWith(filename, "Bak.STED.tiff")) {  
+	if(endsWith(filename, "Bax.STED.tiff") || endsWith(filename, "Bak.STED.tiff") || endsWith(filename, "BaxK.STED.tiff")) {  
 		
 	// if only one channel needs to be rollballed, use this line:
 	//if(endsWith(filename, "Tom20.STED.tiff")) {  
