@@ -21,7 +21,7 @@ for (i = 0; i < filelist.length; i++) {
 		print(title);
 
 		//run an Otsu threshold with dark background and no range reset
-		setThreshold(10000, 65535);
+		setThreshold(7000, 65535);
 		run("Convert to Mask");
 
 		run("Fill Holes");

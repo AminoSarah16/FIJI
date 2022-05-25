@@ -30,6 +30,33 @@ for (i = 0; i < count; i++) {
 	// save ROIs as is
 	save_title = replace(title, ".tif", "_crop" + i+1 + ".tif");  //i starts with 0 but we want to start counting with 1
 	saveAs("Tiff", savepath + save_title);
+	run("Duplicate...", "duplicate");
+	selectImage(save_title);
+	run("Split Channels");
+	waitForUser;
+
+	//select Bax image and save as grayscale
+	selectImage("C1-"+save_title);
+	run("Grays");
+	Bax_save_title = replace(save_title, ".tif", "_Bax.tif");
+	saveAs("Tiff", savepath + Bax_save_title);
+	close();
+	
+	//select Bak image and save as grayscale
+	selectImage("C3-"+save_title);
+	run("Grays");
+	Bak_save_title = replace(save_title, ".tif", "_Bak.tif");
+	saveAs("Tiff", savepath + Bak_save_title);
+	close();
+	
+	//select Tom image and save as grayscale
+	selectImage("C2-"+save_title);
+	run("Grays");
+	Tom_save_title = replace(save_title, ".tif", "_Tom.tif");
+	saveAs("Tiff", savepath + Tom_save_title);
+	close();
+	
+	waitForUser;
 
 	//add scale bar without text
 	run("Scale Bar...", "width=1 height=4 font=14 color=White background=None location=[Lower Right] bold hide overlay");

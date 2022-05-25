@@ -27,6 +27,7 @@ for (i = 0; i < filelist.length; i++) {
 		run("Fill Holes");
 		run("Open");
 		run("Watershed");
+		waitForUser;
 
 		run("Analyze Particles...", "  show=Masks display clear include summarize add in_situ");
 
@@ -35,4 +36,4 @@ for (i = 0; i < filelist.length; i++) {
 		close ("*");
 	}		
 }
-Table.save(filepath + "Summary_nuclei.csv","Summary");	
+Table.save(filepath + "Summary_sytox.csv","Summary");	

@@ -47,17 +47,19 @@ for (i = 0; i < filelist.length; i++) {
 		roiManager("Set Color", "yellow");
 		roiManager("Set Line Width", 2);
 		
-
+		
+		
+		// and save it with the overlayed mask
+		save_title = replace(title, ".tif", "_with-mask.tiff");
+		saveAs("Tiff", savepath + save_title);
 		
 		run("Flatten");
-		
-
-		// and save it with the overlayed mask
-		save_title = replace(title, ".tif", "_with-mask.tif");
-		saveAs("Tiff", savepath + save_title);
+		// and save it with the overlayed mask flattened
+		save_title2 = replace(title, ".tif", "_with-mask_flat.tif");
+		saveAs("Tiff", savepath + save_title2);
 		close ("*");
 
-
+		
 		//measure the intensity on the original 16-bit file
 		open(file);
 		roiManager("Combine");  //computation heavy!
