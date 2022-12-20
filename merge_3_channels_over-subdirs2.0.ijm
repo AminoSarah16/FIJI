@@ -8,9 +8,10 @@ SourceDir = getDirectory("Choose Source Directory ");
 // filepath = "P:/Private/practice/imaging/IF/IF79_BaxK-on-WT_Bcl2-sampler/IF79_STEDycon/obfs_only/"; //this needs to be changed and needs to have backslash at the end!
 subDirlist = getFileList(SourceDir);
 
-namepart1 = "Cox8A.STED-enh99.9.tiff" // the image which is opened first - cytC or Tom20; in any case the confocal channel - ALSO Change at the bottom in the save_title variable!!
-namepart2 = "DNA.STED_BG-20._enh99.9.tiff"
-namepart3 = "Tom.STED-enh99.9.tiff"
+namepart1 = "cytC.STED-enh3x.tiff" // the image which is opened first - cytC or Tom20; in any case the confocal channel //blue
+//!!! ALSO change namepart1 at the bottom in the save_title variable!!
+namepart2 = "BaxK.STED_BG-20._enh99.9_Gauss2.tiff" //green
+namepart3 = "Tom.STED-enh99.9.tiff"  // magenta
 
 for (i = 0; i < subDirlist.length; i++) {
 	subdir = SourceDir + subDirlist[i] + "renamed/" + "tifs/";  //ATTENTION! NEED to change here where the subdir is located!
@@ -38,7 +39,7 @@ for (i = 0; i < subDirlist.length; i++) {
 			//Gray-Green-Magenta c2=green (Bax), c4=gray (Tom), c6=magenta (Bak)
 			//Blue-Green-Magenta c2=green (Bax), c3=blue (Tom), c6=magenta (Bak)
 			
-			save_title = replace(title1, "Cox8A.STED-enh99.9", "merge");
+			save_title = replace(title1, "cytC.STED-enh3x", "merge");
 			saveAs("Tiff", subdir + save_title); // saves as multipage tiff
 			saveAs("Jpeg", subdir + save_title + ".jpg"); // saves as jpg
 			close ("*");

@@ -18,8 +18,8 @@ for (i = 0; i < subDirlist.length; i++) {
 		filename = filelist [j];
 	
 		
-		//change the name parts according to which of the images are supposed to be roll-balled:			
-		if(endsWith(filename, "Bax.STED.tiff") || endsWith(filename, "Bak.STED.tiff")  || endsWith(filename, "BaxK.STED.tiff") || endsWith(filename, "DNA.STED.tiff") || endsWith(filename, "Tom20.STED.tiff")) {
+		//change the name parts according to which of the images are supposed to be roll-balled:
+		if(endsWith(filename, "Bax.STED.tiff") || endsWith(filename, "Bak.STED.tiff")  || endsWith(filename, "BaxK.STED.tiff") || endsWith(filename, "DNA.STED.tiff") || endsWith(filename, "Tom.STED.tiff") || endsWith(filename, "Tom20.STED.tiff")) {
 			
 		// if only one channel needs to be rollballed, use this line:
 		//if(endsWith(filename, "Tom20.STED.tiff")) {  

@@ -23,7 +23,7 @@ for (i = 0; i < filelist.length; i++) {
 	print(filename);
 	
 	//if you find your_string anywhere in the filename - user can change this to any string wanted
-	your_string = "_merge.STED._enh99.9_Gauss2.tiff.jpg";
+	your_string = "_merge.STED-enh99.9.tiff.jpg";
 	if(endsWith(filename, your_string)) {
 		file = filepath + "/" + filename;
 		print(file);
@@ -65,6 +65,7 @@ for (i = 0; i < filelist.length; i++) {
 				roiManager("select", j);
 				run("Plot Profile");
 	  			Bax_values = Plot.getValues(Bak_microns, Bak_intensities);
+	  			//20220621: I think this is an error, I said Bax_values again although it should be Bak_values. On the other hand it doesn't matter, cause the variable is not used. I don't want to change the code now
 				
 				
 				// create new results table

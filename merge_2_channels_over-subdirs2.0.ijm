@@ -8,8 +8,8 @@ SourceDir = getDirectory("Choose Source Directory ");
 // filepath = "P:/Private/practice/imaging/IF/IF79_BaxK-on-WT_Bcl2-sampler/IF79_STEDycon/obfs_only/"; //this needs to be changed and needs to have backslash at the end!
 subDirlist = getFileList(SourceDir);
 
-namepart1 = "Cox8A.STED._enh99.9_Gauss2.tiff" // the image which is opened first - cytC or Tom20; in any case the confocal channel
-namepart2 = "BaxBak.STED_BG-20._enh99.9_Gauss2.tiff" // use the Bak image
+namepart1 = "Tom.STED-enh99.9.tiff" // the image which is opened first - cytC or Tom20; in any case the confocal channel
+namepart2 = "Bak.STED_BG-20._enh99.9.tiff" // use the Bak image
 
 for (i = 0; i < subDirlist.length; i++) {
 	subdir = SourceDir + subDirlist[i] + "renamed/" + "tifs/";
@@ -35,7 +35,7 @@ for (i = 0; i < subDirlist.length; i++) {
 			
 			// run("Merge Channels...", "c5=SVS_IF75_BaxK_spl3_pos2_BaK.STED_BG-20._contr-enh.tiff c6=SVS_IF75_BaxK_spl3_pos2_Tom20.STEDcontr-enh.tiff c7=SVS_IF75_BaxK_spl3_pos2_Bax.STED_BG-20._contr-enh.tiff create ignore");
 			
-			save_title = replace(title, "Cox8A.STED._enh99.9_Gauss2.tiff", "merge");
+			save_title = replace(title, namepart1, "merge");
 			saveAs("Tiff", subdir + save_title + ".tif"); // saves as multipage tiff
 			saveAs("Jpeg", subdir + save_title + ".jpg"); // saves as jpg
 			close ("*");
